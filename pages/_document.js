@@ -2,6 +2,8 @@ import { ServerStyleSheets } from '@material-ui/styles';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
 
+// To fix the issue with material UI for server side rendering (overidding styles).
+// materialUI collide with makeStyle JSS style after page refresh
 export default class MyDocument extends Document {
   render() {
     return (
