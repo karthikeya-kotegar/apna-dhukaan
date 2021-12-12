@@ -12,6 +12,8 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { pink } from '@mui/material/colors';
 import Box from '@mui/material/Box';
+import { CardActionArea } from '@mui/material';
+import NextLink from 'next/link';
 
 export default function Home() {
   return (
@@ -23,20 +25,24 @@ export default function Home() {
           return (
             <Grid item md={4} key={product.name}>
               <Card sx={{ maxWidth: 345 }}>
-                <CardMedia
-                  component="img"
-                  height="300"
-                  image={product.image}
-                  alt={product.name}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {product.name}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    ₹ {product.price}
-                  </Typography>
-                </CardContent>
+                <NextLink href={`/product/${product.slug}`} passHref>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="300"
+                      image={product.image}
+                      alt={product.name}
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {product.name}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        ₹ {product.price}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </NextLink>
                 <CardActions>
                   <Button size="small" color="primary">
                     <AddShoppingCartIcon /> Add to cart

@@ -9,6 +9,19 @@ const useStyles = makeStyles({
     },
   },
 
+  brand: {
+    fontWeight: 'bold',
+    fontSize: '1.5rem',
+  },
+
+  grow: {
+    flexGrow: 1,
+  },
+
+  alert: {
+    marginTop: 100,
+  },
+
   main: {
     minHeight: '80vh',
   },
