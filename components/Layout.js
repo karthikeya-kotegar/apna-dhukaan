@@ -7,16 +7,21 @@ import {
   Typography,
 } from '@mui/material';
 import Head from 'next/head';
-import React from 'react';
+import React, { useContext } from 'react';
 import useStyles from '../utils/styles';
 import NextLink from 'next/link';
 import Link from '@mui/material/Link';
-import { createMuiTheme } from '@material-ui/core';
+import { Switch } from '@material-ui/core';
+import { createTheme } from '@material-ui/core/styles';
+import { Store } from '../utils/Store';
 
 export default function Layout({ children, title, description }) {
   const classes = useStyles();
 
-  const theme = createMuiTheme({
+  const { state, dispatch } = useContext(Store);
+  const { darkMode } = state;
+
+  const theme = createTheme({
     typography: {
       h1: {
         fontSize: '1.6rem',
@@ -31,7 +36,7 @@ export default function Layout({ children, title, description }) {
     },
 
     palette: {
-      type: 'light',
+      type: darkMode ? 'dark' : 'light',
       primary: {
         main: '#f0c000',
       },
@@ -40,6 +45,11 @@ export default function Layout({ children, title, description }) {
       },
     },
   });
+
+  const darkModeChangeHandler = () => {
+    dispatch({ type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON' });
+  };
+
   return (
     <div>
       <Head>
@@ -58,6 +68,10 @@ export default function Layout({ children, title, description }) {
             </NextLink>
             <div className={classes.grow}></div>
             <div>
+              <Switch
+                checked={darkMode}
+                onChange={darkModeChangeHandler}
+              ></Switch>
               <NextLink href="/cart" passHref>
                 <Link>Cart</Link>
               </NextLink>

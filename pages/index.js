@@ -14,7 +14,6 @@ import { pink } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 import { CardActionArea } from '@mui/material';
 import NextLink from 'next/link';
-import Fab from '@mui/material/Fab';
 
 export default function Home() {
   return (
@@ -34,16 +33,17 @@ export default function Home() {
                       image={product.image}
                       alt={product.name}
                     />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
-                        {product.name}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        ₹ {product.price}
-                      </Typography>
-                    </CardContent>
                   </CardActionArea>
                 </NextLink>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {product.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    ₹ {product.price}
+                  </Typography>
+                </CardContent>
+
                 <CardActions>
                   <Button size="small" color="primary">
                     <AddShoppingCartIcon /> Add to cart
