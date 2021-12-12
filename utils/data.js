@@ -69,7 +69,7 @@ const data = {
       slug: 'flex-pant',
       rating: 3.2,
       numReviews: 7,
-      countInStock: 30,
+      countInStock: 0,
       description: 'A ladies pant',
     },
   ],

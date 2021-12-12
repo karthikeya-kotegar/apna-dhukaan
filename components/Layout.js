@@ -5,12 +5,13 @@ import useStyles from '../utils/styles';
 import NextLink from 'next/link';
 import Link from '@mui/material/Link';
 
-export default function Layout({ children }) {
+export default function Layout({ children, title, description }) {
   const classes = useStyles();
   return (
     <div>
       <Head>
-        <title>Apna Dukaan</title>
+        <title> {title ? `${title} | Apna Dukaan` : 'Apna Dukaan'}</title>
+        {description && <meta name="description" content={description}></meta>}
       </Head>
 
       <AppBar position="static" className={classes.navbar}>

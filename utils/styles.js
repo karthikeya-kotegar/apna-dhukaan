@@ -22,8 +22,17 @@ const useStyles = makeStyles({
     marginTop: 100,
   },
 
+  name: {
+    fontSize: '1.5rem',
+  },
+
   main: {
     minHeight: '80vh',
+  },
+
+  section: {
+    marginTop: 10,
+    marginBottom: 20,
   },
 
   footer: {

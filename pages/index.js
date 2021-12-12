@@ -14,6 +14,7 @@ import { pink } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 import { CardActionArea } from '@mui/material';
 import NextLink from 'next/link';
+import Fab from '@mui/material/Fab';
 
 export default function Home() {
   return (
@@ -51,6 +52,9 @@ export default function Home() {
                     <Button>
                       <FavoriteIcon sx={{ color: pink[500] }} />
                     </Button>
+                    {/* <Fab aria-label="like">
+                      <FavoriteIcon sx={{ color: pink[500] }} />
+                    </Fab> */}
                   </Box>
                 </CardActions>
               </Card>
